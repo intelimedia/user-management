@@ -75,6 +75,20 @@ class User extends UserIdentity
 
 		return $user;
 	}
+	
+	/**
+	 * Finds all users by assignment role
+	 *
+	 * @param  \yii\rbac\Role $role
+	 * @return static|null
+	 */
+	public static function findByRole($role)
+	{
+	    return static::find()
+	        ->join('LEFT JOIN','auth_assignment','auth_assignment.user_id = id')
+	        ->where(['auth_assignment.item_name' => $role])
+	        ->all();
+	}
 
 	/**
 	 * Assign role to user
