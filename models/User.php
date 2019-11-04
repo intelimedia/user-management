@@ -86,7 +86,8 @@ class User extends UserIdentity
 	{
 	    return static::find()
 	        ->join('LEFT JOIN','auth_assignment','auth_assignment.user_id = id')
-	        ->where(['auth_assignment.item_name' => $role])
+            ->where(['auth_assignment.item_name' => $role])
+            ->orderBy('username ASC')
 	        ->all();
 	}
 
@@ -404,6 +405,13 @@ class User extends UserIdentity
 
 		return parent::beforeSave($insert);
 	}
+
+    public function afterSave($insert, $changedAttributes)
+    {
+        Yii::$app->cache->delete('paymentSellers');
+        
+        parent::afterSave($insert, $changedAttributes);        
+    }    
 
 	/**
 	 * Don't let delete yourself and don't let non-superadmin delete superadmin
