@@ -49,6 +49,7 @@ use webvimark\extensions\BootstrapSwitch\BootstrapSwitch;
 
 	<?php endif; ?>
 
+    <?= $form->field($model, 'phone')->textInput() ?>
 
 	<div class="form-group">
 		<div class="col-sm-offset-3 col-sm-9">

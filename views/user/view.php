@@ -57,6 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
 						'format'=>'email',
 						'visible'=>User::hasPermission('viewUserEmail'),
 					],
+                    'phone',
 					[
 						'attribute'=>'email_confirmed',
 						'value'=>$model->email_confirmed,

@@ -58,6 +58,7 @@ return [
     'Permissions' => 'Uprawnienia',
     'Permissions for role - "{role}"' => 'Uprawnienia roli - "{role}"',
     'Permissions for role:' => 'Uprawnienia roli: ',
+    'Phone' => 'Telefon',
     'Registration IP' => 'Adres IP rejestracji',
     'Repeat password' => 'Powtórz hasło',
     'Reset' => 'Resetuj',
